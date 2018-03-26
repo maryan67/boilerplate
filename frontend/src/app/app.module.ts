@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ClarityModule } from '@clr/angular';
 import { CommonModule } from '@angular/common';
 
@@ -23,7 +24,8 @@ import { AppRoutingModule } from './app-routing.module';
     PagesModule,
     AuthModule,
     BrowserModule,
-    ClarityModule
+    ClarityModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
