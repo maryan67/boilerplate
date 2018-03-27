@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../user-service.service';
+import { Hero } from '../../hero';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.userService.getHeroes().subscribe((res :Hero) => console.log(res));
+
   }
 
 }
