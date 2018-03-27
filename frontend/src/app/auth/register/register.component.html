@@ -4,24 +4,24 @@
       <fieldset>
         <h2>Register</h2>
         <div class="form-group">
-          <label for="exampleInputEmail1">First Name</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter first name">
+          <label for="idFirstName">First Name</label>
+          <input type="firstname" class="form-control" id="idFirstName" name="firstname" [(ngModel)]="firstname" placeholder="Enter first name">
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail2">Last Name</label>
-          <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter last name">
+          <label for="idLastName">Last Name</label>
+          <input type="lastname" class="form-control" id="idLastName" name="lastname" [(ngModel)]="lastname" placeholder="Enter last name">
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail3">Phone Number</label>
-          <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter phone number">
+          <label for="idPhoneNumber">Phone Number</label>
+          <input type="phonenumber" class="form-control" id="idPhoneNumber" name="phonenumber" [(ngModel)]="phonenumber" placeholder="Enter phone number">
         </div>
         <div class="form-group">
           <label for="idUsername">Username</label>
-          <input type="username" class="form-control" id="idUsername" placeholder="Enter username">
+          <input type="username" class="form-control" id="idUsername" name="username" [(ngModel)]="username" placeholder="Enter username">
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password">
+          <label for="idPassword">Password</label>
+          <input type="password" class="form-control" id="idPassword" name="password" [(ngModel)]="password" placeholder="Enter password">
         </div>
 
         <a href="http://localhost:4200/#/auth/login">
