@@ -9,12 +9,23 @@ import { Hero } from '../../hero';
 })
 export class LoginComponent implements OnInit {
 
+  username: string;
+  password: string;
+  status: string;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getHeroes().subscribe((res :Hero) => console.log(res));
+    this.userService.getHeroes().subscribe((res: Hero) => console.log(res));
+    this.status= "";
+  }
 
+  onLogClick() {
+
+    if (this.username && this.password)
+      this.status= "Placeholder: everything is ok."
+    else
+    this.status= "Username or password is empty."
   }
 
 }
