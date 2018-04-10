@@ -9,11 +9,13 @@ import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
 import { AuthModule } from './auth/auth.module';
 import { AppRoutingModule } from './app-routing.module';
-import { AppInMemoryApi } from './app-in-memory-api/app-in-memory-api.service';
+import { AppInMemoryApiModule } from './app-in-memory-api/app-in-memory-api.service';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { UserService } from './user-service.service';
-import {  HttpClientModule } from '@angular/common/http';
+import { Http, HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -31,11 +33,12 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     ClarityModule,
     NgbModule.forRoot(),
+    HttpModule,
     HttpClientModule,
-    InMemoryWebApiModule.forRoot(AppInMemoryApi, { delay: 0 }),
+    InMemoryWebApiModule.forRoot(AppInMemoryApiModule, {passThruUnknownUrl: true, delay: 500, rootPath: 'api'}),
     FormsModule
   ],
-  providers: [HttpClientModule,UserService],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

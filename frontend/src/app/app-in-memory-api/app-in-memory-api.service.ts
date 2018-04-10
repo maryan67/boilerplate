@@ -1,17 +1,12 @@
+import { InMemoryDbService , RequestInfo} from 'angular-in-memory-web-api';
 import { Injectable } from '@angular/core';
 
-import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { delay } from 'q';
-import { Hero } from '../hero';
-export class AppInMemoryApi implements InMemoryDbService {
-  createDb() {
-    let hero: Hero = 
-      {
-        id: 1,
-        name: 'Superman'
-
-      }
-      
-    return {hero};
+@Injectable()
+export class AppInMemoryApiModule implements InMemoryDbService {
+  createDb(reqInfo : RequestInfo):{} | Promise<{}> {
+    let hero = [
+      { id: 1, name: 'Windstorm' }
+    ];
+    return { hero };
   }
 }
