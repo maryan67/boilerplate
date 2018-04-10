@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user-service.service';
-import { Hero } from '../../hero';
+import { User } from '../../user';
+
 
 @Component({
   selector: 'app-login',
@@ -13,19 +14,40 @@ export class LoginComponent implements OnInit {
   password: string;
   status: string;
 
+  private data: User[] = new Array(50);
+  private index: number = 0;
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getHeroes().subscribe((res: Hero) => console.log(res));
-    this.status= "";
+
+    this.userService.getHeroes().subscribe((res:User[]) => {
+      
+      this.data = res;
+      
+    });
+
+    this.status = "Waiting for login";
   }
 
   onLogClick() {
 
-    if (this.username && this.password)
-      this.status= "Placeholder: everything is ok."
-    else
-    this.status= "Username or password is empty."
+    if (!(this.username && this.password))
+      this.status = "Username or password is empty.";
+    else {
+
+      this.status = 'login unsucces';
+      this.data.forEach(element =>{
+        if ((this.username === element.userName) && (this.password === element.passWord)) {
+          this.status = 'login success !';
+        }
+
+
+      });
+        
+        
+
+      }
+    }
   }
 
 }

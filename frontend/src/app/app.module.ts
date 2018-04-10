@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
 import { AuthModule } from './auth/auth.module';
 import { AppRoutingModule } from './app-routing.module';
-import { AppInMemoryApiModule } from './app-in-memory-api/app-in-memory-api.service';
+import { AppInMemoryUserModule } from './app-in-memory-api/app-in-memory-api.service';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { UserService } from './user-service.service';
 import { Http, HttpModule } from '@angular/http';
@@ -35,7 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule.forRoot(),
     HttpModule,
     HttpClientModule,
-    InMemoryWebApiModule.forRoot(AppInMemoryApiModule, {passThruUnknownUrl: true, delay: 500, rootPath: 'api'}),
+    InMemoryWebApiModule.forRoot(AppInMemoryUserModule, {passThruUnknownUrl: true, delay: 500, rootPath: 'api'}),
     FormsModule
   ],
   providers: [UserService],
