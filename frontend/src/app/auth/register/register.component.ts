@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { element } from 'protractor';
+import { User } from '../../user';
+import { UserService } from '../../user-service.service';
 
 @Component({
   selector: 'app-register',
@@ -8,23 +10,49 @@ import { element } from 'protractor';
 })
 export class RegisterComponent implements OnInit {
 
-  model: any = {};
+  name: string;
+  email: string;
+  userName: string;
+  passWord: string;
 
-  constructor() { }
+
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.onRegisterClick();
-  }
-
-  onRegisterClick(){
-    console.log("Clickity CLICK!");
-    if(this.model.userName){
-      console.log("Working")
-    }else{
-      console.log("Empty")
-    }
 
   }
+
+  onRegisterClick() {
+
+    let user: User ={
+    id:2,
+    name:this.name,
+    userName:this.userName,
+    passWord:this.passWord,
+    email:this.passWord,
+    isTeacher:false
+    };
+
+
+
+    console.log(user);
+    
+    this.userService.createUser(user).subscribe(res =>{
+      console.log(res);
+    });
+
+    this.userService.getHeroes().subscribe((res:User[]) => {
+      
+      console.log(res);
+      
+    });
+
+
+
+  }
+
+
+
 
 }
 

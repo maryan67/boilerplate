@@ -1,9 +1,9 @@
 export class User {
 
+     
 
-
-
-    constructor(public id:number = 0, public name:string = '', public email:string ='', public isTeacher = false, public userName:string ='',public passWord:string ='') {
+    constructor(public id:number = 0 ,public name:string = '', public email:string ='', public isTeacher = false, public userName:string ='',public passWord:string ='') {
+        
         this.id = id;
         this.name = name;
         this.email = email;
@@ -12,5 +12,5 @@ export class User {
         this.passWord = passWord;
     }
 
-    clone() { return new User(this.id, this.name); }
+    
 }
