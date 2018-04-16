@@ -28,12 +28,4 @@ export class RegisterComponent implements OnInit {
 
 }
 
-interface User{
 
-  firstName: string;
-  lastName: string;
-  phoneNum: string;
-  userName: string;
-  password: string;
-
-}
