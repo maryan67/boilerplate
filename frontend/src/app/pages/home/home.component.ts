@@ -8,12 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   show: boolean;
+  courses: string[];
 
   constructor() { }
 
   ngOnInit() {
 
     this.show= true;
+
+    this.courses= ["course1", "course2", "course3"];
   }
 
 }

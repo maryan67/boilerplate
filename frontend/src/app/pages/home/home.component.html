@@ -18,10 +18,17 @@
 
     </tbody>
   </table>
-
-<div *ngIf="show">
-  testtesttest
 </div>
 
 
+<div *ngIf="show">
+  <fieldset>
+    <legend>Choose course</legend>
+    <div class="form-group">
+      <select class="custom-select" >
+        <option selected>Curs1</option>
+        <option>Curs2</option>
+      </select>
+    </div>
+  </fieldset>
 </div>
