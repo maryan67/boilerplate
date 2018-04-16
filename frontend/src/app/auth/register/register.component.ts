@@ -24,8 +24,7 @@ export class RegisterComponent implements OnInit {
 
   onRegisterClick() {
 
-    let user: User ={
-    id:2,
+    let user ={
     name:this.name,
     userName:this.userName,
     passWord:this.passWord,
@@ -35,7 +34,7 @@ export class RegisterComponent implements OnInit {
 
 
 
-    console.log(user);
+    
     
     this.userService.createUser(user).subscribe(res =>{
       console.log(res);

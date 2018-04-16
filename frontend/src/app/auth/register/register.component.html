@@ -3,13 +3,10 @@
     <form>
       <fieldset>
         <h2>Register</h2>
+        
         <div class="form-group">
-          <label for="idFirstName">First Name</label>
-          <input type="firstname" class="form-control" id="idFirstName" name="firstname" [(ngModel)]="firstname" placeholder="Enter first name">
-        </div>
-        <div class="form-group">
-          <label for="idLastName">Last Name</label>
-          <input type="lastname" class="form-control" id="idLastName" name="lastname" [(ngModel)]="lastname" placeholder="Enter last name">
+          <label for="idLastName">Name</label>
+          <input type="lastname" class="form-control" id="idLastName" name="lastname" [(ngModel)]="name" placeholder="Enter last name">
         </div>
         <div class="form-group">
           <label for="idEmail">E-mail</label>
@@ -17,11 +14,11 @@
         </div>
         <div class="form-group">
           <label for="idUsername">Username</label>
-          <input type="username" class="form-control" id="idUsername" name="username" [(ngModel)]="username" placeholder="Enter username">
+          <input type="username" class="form-control" id="idUsername" name="username" [(ngModel)]="userName" placeholder="Enter username">
         </div>
         <div class="form-group">
           <label for="idPassword">Password</label>
-          <input type="password" class="form-control" id="idPassword" name="password" [(ngModel)]="password" placeholder="Enter password">
+          <input type="password" class="form-control" id="idPassword" name="password" [(ngModel)]="passWord" placeholder="Enter password">
         </div>
 
         <button type="button" class="btn btn-primary" (click)="onRegisterClick()">Sign Up</button>
