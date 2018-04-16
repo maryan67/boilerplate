@@ -20,15 +20,28 @@
   </table>
 </div>
 
+<div class="courses">
+  <div *ngIf="!isProf">
+    <fieldset>
+      <legend>Choose course. Student</legend>
+      <div class="form-group">
+        <select class="custom-select">
+          <option selected>Curs1</option>
+          <option>Curs2</option>
+        </select>
+      </div>
+    </fieldset>
+  </div>
 
-<div *ngIf="show">
-  <fieldset>
-    <legend>Choose course</legend>
-    <div class="form-group">
-      <select class="custom-select" >
-        <option selected>Curs1</option>
-        <option>Curs2</option>
-      </select>
-    </div>
-  </fieldset>
+  <div *ngIf="isProf">
+    <fieldset>
+      <legend>Choose course. Prof</legend>
+      <div class="form-group">
+        <select class="custom-select">
+          <option selected>Curs1</option>
+          <option>Curs2</option>
+        </select>
+      </div>
+    </fieldset>
+  </div>
 </div>

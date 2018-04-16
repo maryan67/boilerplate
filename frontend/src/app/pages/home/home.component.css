@@ -6,5 +6,7 @@
 
 .courses
 {
-    width: 70%;
+   position: absolute;
+   left: 65%;
+   top: 10%;
 }
