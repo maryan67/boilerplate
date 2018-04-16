@@ -29,12 +29,12 @@
           <fieldset>
             <div class="form-check">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked=""> For Students
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="false" checked="" [(ngModel)]="isTeacher"> For Students
               </label>
             </div>
             <div class="form-check">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2" checked=""> Teachers ONLY
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="true" checked="" [(ngModel)]="isTeacher" > Teachers ONLY
               </label>
             </div>
           </fieldset>

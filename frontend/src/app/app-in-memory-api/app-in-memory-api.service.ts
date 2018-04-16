@@ -16,24 +16,4 @@ export class AppInMemoryUserModule implements InMemoryDbService {
     return { users };
   }
 
-  // post(reqInfo: RequestInfo) {
-
-  //   let receivedUser = reqInfo.utils.getJsonBody(reqInfo);
-    
-  //   this.users.push(receivedUser);
-  //   const dataEncapsulation = reqInfo.utils.getConfig().dataEncapsulation;
-  //   reqInfo.utils.createResponse$(() => {
-
-  //     let respOpt: ResponseOptions = new ResponseOptions({
-  //       status: 200,
-  //       body: 'da'
-  //     });
-  //     return respOpt;
-
-  //   });
-
-
-
-
-  // }
 }

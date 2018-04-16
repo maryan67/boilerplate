@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { element } from 'protractor';
 import { User } from '../../user';
 import { UserService } from '../../user-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -14,9 +15,10 @@ export class RegisterComponent implements OnInit {
   email: string;
   userName: string;
   passWord: string;
+  isTeacher:boolean;
 
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,private router: Router) { }
 
   ngOnInit() {
 
@@ -29,7 +31,7 @@ export class RegisterComponent implements OnInit {
     userName:this.userName,
     passWord:this.passWord,
     email:this.passWord,
-    isTeacher:false
+    isTeacher:this.isTeacher
     };
 
 
@@ -37,14 +39,10 @@ export class RegisterComponent implements OnInit {
     
     
     this.userService.createUser(user).subscribe(res =>{
-      console.log(res);
+      this.router.navigate(['/pages/home'], { queryParams:res });
     });
 
-    this.userService.getHeroes().subscribe((res:User[]) => {
-      
-      console.log(res);
-      
-    });
+    
 
 
 

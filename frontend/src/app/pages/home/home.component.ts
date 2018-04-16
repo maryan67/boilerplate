@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { User } from '../../user';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +11,14 @@ export class HomeComponent implements OnInit {
 
   isProf: boolean;
   courses: string[];
+  loggedUser: string;
 
-  constructor() { }
-
+  constructor() { 
+  }
+  
   ngOnInit() {
-
+    
+  
     this.isProf= false;
 
     this.courses= ["course1", "course2", "course3"];

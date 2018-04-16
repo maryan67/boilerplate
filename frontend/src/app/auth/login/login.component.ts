@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user-service.service';
 import { User } from '../../user';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -16,14 +18,14 @@ export class LoginComponent implements OnInit {
 
   private data: User[] = new Array(50);
   private index: number = 0;
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
 
-    this.userService.getHeroes().subscribe((res:User[]) => {
-      
+    this.userService.getHeroes().subscribe((res: User[]) => {
+
       this.data = res;
-      
+
     });
 
     this.status = "Waiting for login";
@@ -36,18 +38,22 @@ export class LoginComponent implements OnInit {
     else {
 
       this.status = 'login unsucces';
-      this.data.forEach(element =>{
+      this.data.forEach(element => {
         if ((this.username === element.userName) && (this.password === element.passWord)) {
           this.status = 'login success !';
+          let user = JSON.stringify(element);
+
+
+          this.router.navigate(['/pages/home'], { queryParams:element });
         }
 
 
       });
-        
-        
 
-      }
+
+
     }
   }
+}
 
 
