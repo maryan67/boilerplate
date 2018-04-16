@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http, Response } from '@angular/http';
-import { Hero } from './hero';
+import { User } from './user';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
@@ -12,9 +11,9 @@ export class UserService {
 
   }
 
-  getHeroes():Observable<Hero>{
+  getHeroes(): Observable<User[]> {
 
-     return this.HttpClient.get<Hero>('/api/heroes');
+    return this.HttpClient.get<User[]>('api/hero');
 
   }
 
