@@ -14,6 +14,8 @@ import { UserService } from './user-service.service';
 import { Http, HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CourseService } from './course-service.service';
+import { EntryService } from './entry-service.service';
 
 
 
@@ -36,7 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     FormsModule
   ],
-  providers: [UserService],
+  providers: [UserService, CourseService, EntryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
