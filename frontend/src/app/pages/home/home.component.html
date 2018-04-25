@@ -21,7 +21,7 @@
 </div>
 
 <div class="courses">
-  <div *ngIf="!isProf">
+  <div *ngIf="!loggedUser.isTeacher">
     <fieldset>
       <legend>Choose course. Student</legend>
       <div class="form-group">
@@ -33,7 +33,7 @@
     </fieldset>
   </div>
 
-  <div *ngIf="isProf">
+  <div *ngIf="loggedUser.isTeacher">
     <fieldset>
       <legend>Choose course. Prof</legend>
       <div class="form-group">

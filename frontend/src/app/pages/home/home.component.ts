@@ -9,19 +9,26 @@ import { User } from '../../user';
 })
 export class HomeComponent implements OnInit {
 
-  isProf: boolean;
   courses: string[];
-  loggedUser: string;
+  loggedUser: User;
 
-  constructor() { 
+  constructor(private thisRoute:ActivatedRoute) { 
   }
   
   ngOnInit() {
     
-  
-    this.isProf= false;
+    
+    this.thisRoute.queryParams.subscribe((user:User) => {
+     
+      this.loggedUser= user;
+
+    });
+
+
+    console.log("Prof= " + this.loggedUser.isTeacher + " Nume " + this.loggedUser.name);
 
     this.courses= ["course1", "course2", "course3"];
+    
   }
 
 }
