@@ -25,12 +25,11 @@
     <fieldset>
       <legend>Choose course</legend>
       <div class="form-group">
-        <select class="custom-select">
-          <option selected>Curs1</option>
-          <option>Curs2</option>
+        <select >
+          <option *ngFor= " let course of courses" [value]= "course">{{course}}</option>
         </select>
       </div>
-      <button type="button" class="btn btn-primary">Select</button>
+      <button type="button" class="btn btn-primary" (click)="onSelectCourseClick()">Select</button>
     </fieldset>
   </div>
 
@@ -38,9 +37,8 @@
     <fieldset>
       <legend>Choose course you are teaching </legend>
       <div class="form-group">
-        <select class="custom-select">
-          <option selected>Curs1</option>
-          <option>Curs2</option>
+        <select class="custom-select" >
+          <option *ngFor= " let course of courses">{{course}}</option>
         </select>
       </div>
       <button type="button" class="btn btn-primary">Select</button>
