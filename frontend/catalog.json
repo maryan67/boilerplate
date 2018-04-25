@@ -72,5 +72,21 @@
       "isTeacher": true,
       "id": 9
     }
+  ],
+  
+  "entries": [
+	{"id_entry": 1 ,
+	 "id_course": 1,
+	 "id_student": 1,
+	 "grade": 0
+	}
+  ],
+  
+  "courses":[
+  {
+	"id": 1,
+	"id_teacher": 2,
+	"name": "Electronica"
+  }
   ]
 }
