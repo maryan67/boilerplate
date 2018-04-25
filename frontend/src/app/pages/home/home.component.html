@@ -23,25 +23,44 @@
 <div class="courses">
   <div *ngIf="!loggedUser.isTeacher">
     <fieldset>
-      <legend>Choose course. Student</legend>
+      <legend>Choose course</legend>
       <div class="form-group">
         <select class="custom-select">
           <option selected>Curs1</option>
           <option>Curs2</option>
         </select>
       </div>
+      <button type="button" class="btn btn-primary">Select</button>
     </fieldset>
   </div>
 
   <div *ngIf="loggedUser.isTeacher">
     <fieldset>
-      <legend>Choose course. Prof</legend>
+      <legend>Choose course you are teaching </legend>
       <div class="form-group">
         <select class="custom-select">
           <option selected>Curs1</option>
           <option>Curs2</option>
         </select>
       </div>
+      <button type="button" class="btn btn-primary">Select</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Choose student</legend>
+      <div class="form-group">
+        <select class="custom-select">
+          <option selected>Nelutu</option>
+          <option>Ionel</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-primary">Select</button>
+    </fieldset>
+
+    <fieldset> 
+      <legend>New grade</legend>
+      <input type="grade" class="form-control" placeholder="Enter grade">
+      <button type="button" class="btn btn-primary">Set grade</button>
     </fieldset>
   </div>
 </div>
