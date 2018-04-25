@@ -14,7 +14,7 @@ export class UserService {
 
   getHeroes(): Observable<User[]> {
 
-    return this.HttpClient.get<User[]>('api/users');
+    return this.HttpClient.get<User[]>( 'http://localhost:3000/users');
 
   }
 
@@ -22,7 +22,7 @@ export class UserService {
     
     const cudOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
     
-    return this.HttpClient.post('api/users',user,cudOptions);
+    return this.HttpClient.post('http://localhost:3000/users',user,cudOptions);
   }
 
 }

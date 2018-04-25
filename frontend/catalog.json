@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Marian Secarea",
+      "email": "msecarea@gmail.com",
+      "isTeacher": false,
+      "userName": "test",
+      "passWord": "testulet"
+    },
+    {
+      "name": "Virgilut Meretel",
+      "userName": "gilut50000",
+      "passWord": "anca",
+      "email": "anca",
+      "isTeacher": "true",
+      "id": 2
+    }
+  ]
+}

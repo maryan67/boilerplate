@@ -1,0 +1,3 @@
+{
+"users":[{ id: 1, name: 'Marian Secarea', email: 'msecarea@gmail.com', isTeacher: false, userName: 'test', passWord: 'testulet' }]
+}
