@@ -20,7 +20,11 @@ export class CourseService {
   getCourseById(id:number):Observable<Course>{
     return this.http.get<Course>('http://localhost:3000/courses?id_teacher='+id);
   }
-
+  updateCourse(course:Course): Observable<any>
+  {
+    const cudOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+    return this.http.post('http://localhost:3000/courses',course,cudOptions);
+  }
 
 
 

@@ -10,8 +10,8 @@
     <tbody>
 
       <tr *ngFor ="let entry of entries">
-        <td>{{entry.id_course}}</td>
-        <td>Patrunjel</td>
+        <td>{{diplayCourseName(entry)}}</td>
+        <td>{{displayTeacherName()}}</td>
         <td>{{entry.grade}}</td>
       </tr>
 
@@ -33,32 +33,32 @@
     </fieldset>
   </div>
 
-  <div *ngIf="loggedUser.isTeacher">
+  <div   *ngIf="loggedUser.isTeacher">
     <fieldset>
-      <legend>Choose course you are teaching </legend>
-      <div class="form-group">
-        <select class="custom-select" >
-          <option *ngFor= " let course of courses">{{course}}</option>
+      <legend *ngIf="!getIsTeaching()">Choose course you are teaching </legend>
+      <div class="form-group" *ngIf="!getIsTeaching()">
+        <select class="custom-select" [(ngModel)] = "selectedTeacherCourse" >
+          <option *ngFor= " let course of freeCourses" [ngValue]= "course">{{course.name}}</option>
         </select>
       </div>
-      <button type="button" class="btn btn-primary">Select</button>
+      <button type="button" class="btn btn-primary" (click)="onSelectCourseClick()" *ngIf="!getIsTeaching()">Select</button>
     </fieldset>
 
     <fieldset>
-      <legend>Choose student</legend>
+      <legend *ngIf="getIsTeaching()">Choose student</legend>
       <div class="form-group">
-        <select class="custom-select">
+        <select class="custom-select" *ngIf="getIsTeaching()">
           <option selected>Nelutu</option>
           <option>Ionel</option>
         </select>
       </div>
-      <button type="button" class="btn btn-primary">Select</button>
+      <button  type="button" class="btn btn-primary" *ngIf="getIsTeaching()">Select</button>
     </fieldset>
 
-    <fieldset> 
-      <legend>New grade</legend>
-      <input type="grade" class="form-control" placeholder="Enter grade">
-      <button type="button" class="btn btn-primary">Set grade</button>
+    <fieldset > 
+      <legend *ngIf="getIsTeaching()">New grade</legend>
+      <input type="grade" class="form-control" placeholder="Enter grade" *ngIf="getIsTeaching()">
+      <button type="button" class="btn btn-primary" *ngIf="getIsTeaching()">Set grade</button>
     </fieldset>
   </div>
 </div>

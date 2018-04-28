@@ -63,26 +63,36 @@
       "email": "ds",
       "isTeacher": "true",
       "id": 8
+    },
+    {
+      "name": "boss",
+      "userName": "boss",
+      "passWord": "boss",
+      "email": "boss",
+      "isTeacher": false,
+      "id": 9
+    },
+    {
+      "name": "re",
+      "userName": "re",
+      "passWord": "re",
+      "email": "re",
+      "isTeacher": false,
+      "id": 10
     }
   ],
   "entries": [
     {
-      "id": 1,
+      "id_course": 2,
+      "id_student": 1,
+      "grade": 0,
+      "id": 1
+    },
+    {
       "id_course": 1,
       "id_student": 1,
-      "grade": 0
-    },
-    {
-      "id_course": 2,
-      "id_student": "1",
       "grade": 0,
       "id": 2
-    },
-    {
-      "id_course": 2,
-      "id_student": "1",
-      "grade": 0,
-      "id": 3
     }
   ],
   "courses": [
@@ -95,6 +105,11 @@
       "id": 2,
       "id_teacher": 8,
       "name": "MAte"
+    },
+    {
+      "id": 3,
+      "id_teacher": 0,
+      "name": "Info"
     }
   ]
 }

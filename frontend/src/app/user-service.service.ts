@@ -24,4 +24,8 @@ export class UserService {
     return this.HttpClient.post('http://localhost:3000/users',user,cudOptions);
   }
 
+  getTeachers():Observable<User[]>{
+    return this.HttpClient.get<User[]>("http://localhost:3000/users?isTeacher=true");
+  }
+
 }
