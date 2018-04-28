@@ -8,7 +8,7 @@ export class EntryService {
 
   constructor(private http: HttpClient) { }
 
-  addEntry(entry: Entry): Observable<any> {
+  addEntry(entry): Observable<any> {
     const cudOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
     return this.http.post('http://localhost:3000/entries', entry, cudOptions);

@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Marian Secarea",
       "email": "msecarea@gmail.com",
-      "isTeacher": false,
+      "isTeacher": "",
       "userName": "test",
       "passWord": "testulet"
     },
@@ -63,22 +63,26 @@
       "email": "ds",
       "isTeacher": "true",
       "id": 8
-    },
-    {
-      "name": "sex",
-      "userName": "laba",
-      "passWord": "pulameaemare",
-      "email": "pulameaemare",
-      "isTeacher": true,
-      "id": 9
     }
   ],
   "entries": [
     {
-      "id_entry": 1,
+      "id": 1,
       "id_course": 1,
       "id_student": 1,
       "grade": 0
+    },
+    {
+      "id_course": 2,
+      "id_student": "1",
+      "grade": 0,
+      "id": 2
+    },
+    {
+      "id_course": 2,
+      "id_student": "1",
+      "grade": 0,
+      "id": 3
     }
   ],
   "courses": [
@@ -86,6 +90,11 @@
       "id": 1,
       "id_teacher": 2,
       "name": "Electronica"
+    },
+    {
+      "id": 2,
+      "id_teacher": 8,
+      "name": "MAte"
     }
   ]
 }

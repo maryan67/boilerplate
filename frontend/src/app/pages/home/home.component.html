@@ -2,17 +2,17 @@
   <table class="table table-hover">
     <thead>
       <tr class="table-active">
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
+        <th scope="col">Course Name</th>
+        <th scope="col">Teacher Name</th>
         <th scope="col">Grade</th>
       </tr>
     </thead>
     <tbody>
 
-      <tr>
-        <td>Laurentiu</td>
+      <tr *ngFor ="let entry of entries">
+        <td>{{entry.id_course}}</td>
         <td>Patrunjel</td>
-        <td>4.20</td>
+        <td>{{entry.grade}}</td>
       </tr>
 
 
@@ -24,9 +24,9 @@
   <div *ngIf="!loggedUser.isTeacher">
     <fieldset>
       <legend>Choose course</legend>
-      <div class="form-group">
-        <select class="custom-select" [(ngModel)]="selectedCourse">
-          <option *ngFor= " let course of courses" [value]= "course">{{course}}</option>
+      <div class="form-group" >
+        <select class="custom-select"  [(ngModel)] = "selectedCourse">
+          <option *ngFor= " let course of unatendedCourses" [ngValue]= "course">{{course.name}}</option>
         </select>
       </div>
       <button type="button" class="btn btn-primary" (click)="onSelectCourseClick()">Select</button>
