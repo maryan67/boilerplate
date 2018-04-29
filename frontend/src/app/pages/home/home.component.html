@@ -1,5 +1,5 @@
-<div class=table>
-  <table class="table table-hover">
+<div class=table >
+  <table class="table table-hover" *ngIf="!loggedUser.isTeacher">
     <thead>
       <tr class="table-active">
         <th scope="col">Course Name</th>
@@ -13,6 +13,27 @@
         <td>{{entry.courseName}}</td>
         <td>{{entry.teacherName}}</td>
         <td>{{entry.grade}}</td>
+      </tr>
+
+
+    </tbody>
+  </table>
+</div>
+
+<div class=table >
+  <table class="table table-hover" *ngIf="loggedUser.isTeacher">
+    <thead>
+      <tr class="table-active">
+        <th scope="col">Student Name</th>
+        <th scope="col">Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor ="let entry of entriesTeachers">
+        <td>{{entry.studentName}}</td>
+        <td>{{entry.grade}}</td>
+        
       </tr>
 
 
@@ -47,18 +68,16 @@
     <fieldset>
       <legend *ngIf="getIsTeaching()">Choose student</legend>
       <div class="form-group">
-        <select class="custom-select" *ngIf="getIsTeaching()">
-          <option selected>Nelutu</option>
-          <option>Ionel</option>
+        <select class="custom-select" [(ngModel)]="teachersSelectedStudent" *ngIf="getIsTeaching()">
+          <option *ngFor ="let student of teachersStudents" [ngValue]="student">{{student.name}}</option>
         </select>
       </div>
-      <button  type="button" class="btn btn-primary" *ngIf="getIsTeaching()">Select</button>
     </fieldset>
 
     <fieldset > 
       <legend *ngIf="getIsTeaching()">New grade</legend>
-      <input type="grade" class="form-control" placeholder="Enter grade" *ngIf="getIsTeaching()">
-      <button type="button" class="btn btn-primary" *ngIf="getIsTeaching()">Set grade</button>
+      <input type="number" class="form-control" placeholder="Enter grade" [(ngModel)]="newGrade" *ngIf="getIsTeaching()">
+      <button type="button" class="btn btn-primary" *ngIf="getIsTeaching()" (click)="updateGrade()">Set grade</button>
     </fieldset>
   </div>
 </div>

@@ -45,6 +45,7 @@ export class NavbarComponent implements OnInit {
             this.home.course = res[0];
             this.home.getTeachedCurse();
             this.home.getFreeCourses();
+            this.home.getEntriesForLoggedTeacher();
             this.displayString = this.displayNameAndCourse();
             this.executeCourseUpdate = false;
            }

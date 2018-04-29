@@ -18,4 +18,12 @@ export class EntryService {
     return this.http.get<Entry[]>('http://localhost:3000/entries?id_student='+id_student);
   }
 
+  getEntriesForTeacher(id_course:number):Observable<Entry[]>{
+    return this.http.get<Entry[]>('http://localhost:3000/entries?id_course='+id_course);
+  }
+
+  updateEntry(entry:Entry):Observable<any>{
+    return this.http.put('http://localhost:3000/entries/'+entry.id,entry);
+  }
+
 }

@@ -7,7 +7,8 @@ import { EntryService } from '../../entry-service.service';
 import { CourseService } from '../../course-service.service';
 import { UserService } from '../../user-service.service';
 import { element } from 'protractor';
-import { EntryDetails } from '../../entry-detalis';
+import { EntryDetailsStudent } from '../../entry-detalis-student';
+import { EntryDetailsTeacher } from '../../entry-details-teacher';
 
 @Component({
   selector: 'app-home',
@@ -31,7 +32,11 @@ export class HomeComponent implements OnInit {
   teacherCourse: Course;
   courseOption: Course;
   entriesLoaded: boolean = false;
-  entryDetalis: EntryDetails[] = [];
+  entryDetalis: EntryDetailsStudent[] = [];
+  entriesTeachers:EntryDetailsTeacher[] =[];
+  teachersStudents:User[] =[];
+  teachersSelectedStudent:User;
+  newGrade:number;
 
   constructor(private thisRoute: ActivatedRoute, private entryService: EntryService, private coursesService: CourseService,
     private UserService: UserService) {}
@@ -51,6 +56,7 @@ export class HomeComponent implements OnInit {
         });
       });
     }
+    
   }
 
 
@@ -67,7 +73,7 @@ export class HomeComponent implements OnInit {
           _entries.forEach((entry: Entry) => {
             if (entry.id_course == element.id) {
               isContained = true;
-              this.entryDetalis.push(new EntryDetails(this.diplayCourseName(entry), this.displayTeacherName(entry), entry.grade));
+              this.entryDetalis.push(new EntryDetailsStudent(this.diplayCourseName(entry), this.displayTeacherName(entry), entry.grade));
             }
             entryDetalisIndex++;
           });
@@ -82,6 +88,22 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  getEntriesForLoggedTeacher(){
+    this.entryService.getEntriesForTeacher(this.course.id).subscribe((_entries:Entry[])=>{
+      
+      this.UserService.getStudents().subscribe((_students:User[])=>{
+        _entries.forEach((_entry:Entry)=>{
+          _students.forEach((_student:User) =>{
+            if(_entry.id_student == _student.id){
+              this.entriesTeachers.push(new EntryDetailsTeacher(_student.name,_entry.grade));
+              this.teachersStudents.push(_student);
+            }
+          });
+        });
+      });
+      this.entries = _entries;
+    });
+  }
 
   getFreeCourses() {
     this.coursesService.getFreeCourses().subscribe((_freeCourses: Course[]) => {
@@ -90,7 +112,6 @@ export class HomeComponent implements OnInit {
     });
   }
   getTeachedCurse() {
-
 
     if (this.course === undefined)
       this.isTeaching = false;
@@ -156,6 +177,18 @@ export class HomeComponent implements OnInit {
   getIsTeaching(): boolean {
 
     return this.isTeaching;
+  }
+
+  updateGrade(){
+    this.entries.forEach(_entry=>
+    {
+      if(_entry.id_student == this.teachersSelectedStudent.id){
+        _entry.grade = this.newGrade;
+        this.entryService.updateEntry(_entry).subscribe(res=>{
+          window.location.reload();
+        });
+      }
+    });
   }
 
 
