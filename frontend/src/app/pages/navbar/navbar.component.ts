@@ -4,6 +4,7 @@ import { User } from '../../user';
 import { Course } from '../../course';
 import { CourseService } from '../../course-service.service';
 import { HomeComponent } from '../home/home.component';
+import { parse } from 'querystring';
 
 @Component({
   selector: 'app-navbar',
@@ -16,22 +17,35 @@ export class NavbarComponent implements OnInit {
   course: Course;
   executeCourseUpdate: boolean = true;
   constructor(private thisRoute: ActivatedRoute, private CourseService: CourseService) { }
+  
   @ViewChild(HomeComponent) home: HomeComponent;
   ngOnInit() {
-    this.thisRoute.queryParams.subscribe((user: User) => {
+    this.thisRoute.queryParams.subscribe(user => {
 
-      this.loggedUser = user;
-      this.home.loggedUser = user;
+      let parsedBool:boolean;
+      switch(user.isTeacher){
+        case "true":{
+          parsedBool = true;
+          break;
+        }
+        case "false":{
+          parsedBool =false;
+        }
+      }
+      this.loggedUser = new User(user.id,user.name,user.email,parsedBool,user.userName,user.passWord);
+      this.home.loggedUser = this.loggedUser;
+      this.displayString = this.displayNameAndCourse();
+     
 
+      
       if (this.loggedUser.isTeacher)
         this.CourseService.getCourseForTeacher(this.loggedUser.id).subscribe((res: Course) => {
            if (this.executeCourseUpdate) {
             this.course = res[0];
             this.home.course = res[0];
             this.home.getTeachedCurse();
-
-            this.displayString = this.displayNameAndCourse();
             this.home.getFreeCourses();
+            this.displayString = this.displayNameAndCourse();
             this.executeCourseUpdate = false;
            }
         });
@@ -41,7 +55,6 @@ export class NavbarComponent implements OnInit {
 
   displayNameAndCourse(): string {
     let returnedString: string;
-
 
     if (this.loggedUser.isTeacher) {
       if (!(this.course === undefined)) {

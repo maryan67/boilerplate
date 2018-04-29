@@ -9,9 +9,9 @@
     </thead>
     <tbody>
 
-      <tr *ngFor ="let entry of entries">
-        <td>{{diplayCourseName(entry)}}</td>
-        <td>{{displayTeacherName()}}</td>
+      <tr *ngFor ="let entry of entryDetalis">
+        <td>{{entry.courseName}}</td>
+        <td>{{entry.teacherName}}</td>
         <td>{{entry.grade}}</td>
       </tr>
 

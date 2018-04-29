@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Marian Secarea",
       "email": "msecarea@gmail.com",
-      "isTeacher": "",
+      "isTeacher": false,
       "userName": "test",
       "passWord": "testulet"
     },
@@ -13,7 +13,7 @@
       "userName": "gilut50000",
       "passWord": "anca",
       "email": "anca",
-      "isTeacher": "true",
+      "isTeacher": true,
       "id": 2
     },
     {
@@ -29,7 +29,7 @@
       "userName": "prf",
       "passWord": "prf",
       "email": "prf",
-      "isTeacher": "true",
+      "isTeacher": true,
       "id": 4
     },
     {
@@ -37,7 +37,7 @@
       "userName": "trtre",
       "passWord": "tretertretre",
       "email": "tretertretre",
-      "isTeacher": "true",
+      "isTeacher": true,
       "id": 5
     },
     {
@@ -45,7 +45,7 @@
       "userName": "fdsfsd",
       "passWord": "fdsfds",
       "email": "fdsfds",
-      "isTeacher": "true",
+      "isTeacher": true,
       "id": 6
     },
     {
@@ -61,7 +61,7 @@
       "userName": "ds",
       "passWord": "ds",
       "email": "ds",
-      "isTeacher": "true",
+      "isTeacher": true,
       "id": 8
     },
     {
@@ -79,6 +79,22 @@
       "email": "re",
       "isTeacher": false,
       "id": 10
+    },
+    {
+      "name": "smecker",
+      "userName": "nu",
+      "passWord": "nu",
+      "email": "nu",
+      "isTeacher": false,
+      "id": 11
+    },
+    {
+      "name": "ticear",
+      "userName": "da",
+      "passWord": "da",
+      "email": "da",
+      "isTeacher": true,
+      "id": 12
     }
   ],
   "entries": [
@@ -93,6 +109,30 @@
       "id_student": 1,
       "grade": 0,
       "id": 2
+    },
+    {
+      "id_course": 1,
+      "id_student": 1,
+      "grade": 0,
+      "id": 3
+    },
+    {
+      "id_course": 3,
+      "id_student": 1,
+      "grade": 0,
+      "id": 4
+    },
+    {
+      "id_course": 2,
+      "id_student": "3",
+      "grade": 0,
+      "id": 5
+    },
+    {
+      "id_course": 1,
+      "id_student": "3",
+      "grade": 0,
+      "id": 6
     }
   ],
   "courses": [
@@ -104,12 +144,17 @@
     {
       "id": 2,
       "id_teacher": 8,
-      "name": "MAte"
+      "name": "Matematica"
     },
     {
-      "id": 3,
-      "id_teacher": 0,
-      "name": "Info"
+      "id_teacher": "4",
+      "name": "InformaticA",
+      "id": 3
+    },
+    {
+      "id_teacher": "12",
+      "name": "Biologie",
+      "id": 4
     }
   ]
 }

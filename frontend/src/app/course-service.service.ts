@@ -23,7 +23,7 @@ export class CourseService {
   updateCourse(course:Course): Observable<any>
   {
     const cudOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-    return this.http.post('http://localhost:3000/courses',course,cudOptions);
+    return this.http.put('http://localhost:3000/courses/'+course.id,course);
   }
 
 
